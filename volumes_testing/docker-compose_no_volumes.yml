@@ -7,12 +7,12 @@ services:
             limits:
                 memory: 2G
     ports:
-      - "80:8111"
+      - "8080:8111"
   tca:
-    image: android_tc_agent_image:latest
+    image: nowy_android_sdk_container:latest    
     deploy:
         resources:
             limits:
                 memory: 6G
     environment:
-      - SERVER_URL=tca:8111
+      - SERVER_URL=tcs:8111

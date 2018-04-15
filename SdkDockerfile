@@ -1,4 +1,4 @@
-FROM jetbrains/teamcity-agent:2017.2.3
+FROM jetbrains/teamcity-agent:latest
 
 ENV SDK_URL="https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip" \
     ANDROID_HOME="/usr/local/android-sdk" \

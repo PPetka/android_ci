@@ -1,18 +1,20 @@
 version: "3"
 services:
-  tcs:
+  tc_server:
     image: jetbrains/teamcity-server:latest
+    volumes:
+      - "/home/phate/docker/android_ci/volumes_testing/teamcity/data:/data/teamcity_server/datadir"
     deploy:
         resources:
             limits:
                 memory: 2G
     ports:
-      - "80:8111"
-  tca:
-    image: jetbrains/teamcity-agent:latest
+      - "8080:8111"
+  tc_agent:
+    image: android_tc_agent_image:latest
     deploy:
         resources:
             limits:
                 memory: 6G
     environment:
-      - SERVER_URL=tcs:8111
+      - SERVER_URL=tc_server:8111
